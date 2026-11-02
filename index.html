@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="theme-color" content="#171d1b">
+  <title>Age of Empires II — Frontier</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="game-shell">
+    <header class="topbar">
+      <div class="brand"><div class="brand-mark">✦</div><div><div class="eyebrow">THE FRONTIER CAMPAIGN</div><div class="brand-title">AGE OF EMPIRES <span>II</span></div></div></div>
+      <div class="resources" aria-label="Your resources">
+        <div class="resource food"><span class="res-icon">✳</span><div><small>FOOD</small><strong id="food">200</strong></div></div>
+        <div class="resource wood"><span class="res-icon">♣</span><div><small>WOOD</small><strong id="wood">150</strong></div></div>
+        <div class="resource gold"><span class="res-icon">◆</span><div><small>GOLD</small><strong id="gold">100</strong></div></div>
+        <div class="resource stone"><span class="res-icon">⬟</span><div><small>STONE</small><strong id="stone">80</strong></div></div>
+      </div>
+      <div class="top-actions"><div class="age-chip"><span class="age-dot"></span> FEUDAL AGE</div><button id="pauseBtn" class="icon-btn" title="Pause (Space)">Ⅱ</button><button id="soundBtn" class="icon-btn" title="Toggle sound">♫</button></div>
+    </header>
+    <section class="play-area">
+      <div class="map-wrap">
+        <canvas id="game" aria-label="Game map. Select units and right-click to command them."></canvas>
+        <div class="map-vignette"></div>
+        <div class="map-topline"><div class="map-coords"><span class="live-dot"></span> THE GREENMERE VALLEY <span class="divider">/</span> DAY <b id="day">01</b></div><div class="objective"><span>✦</span> <b>OBJECTIVE</b> Destroy the enemy stronghold</div></div>
+        <div class="map-controls"><span>DRAG TO PAN</span><i></i><span>SCROLL TO ZOOM</span><i></i><span>RIGHT-CLICK TO COMMAND</span></div>
+        <div class="toast" id="toast"></div>
+      </div>
+      <aside class="sidebar">
+        <section class="mission-card"><div class="section-label"><span class="gold-line"></span> YOUR SETTLEMENT</div><div class="mission-heading">A new dawn<br>on the frontier.</div><p>Build your economy, raise an army, and drive the rival clan from Greenmere.</p><div class="population"><div class="pop-label"><span>POPULATION</span><b id="pop">4 <i>/ 15</i></b></div><div class="pop-track"><span id="popFill"></span></div></div></section>
+        <section class="selection-section"><div class="section-label"><span class="gold-line"></span> SELECTED</div><div id="selection" class="selection-card"><div class="empty-select"><span class="select-cross">⌖</span><div><b>No unit selected</b><small>Click a villager or soldier</small></div></div></div></section>
+        <section class="command-section"><div class="section-label"><span class="gold-line"></span> COMMAND</div><div id="commands" class="command-grid"></div><div class="hint" id="hint">Select a unit to see available commands.</div></section>
+        <section class="event-section"><div class="section-label"><span class="gold-line"></span> FIELD REPORT <span class="event-live"><i></i> LIVE</span></div><div id="log" class="event-log"></div></section>
+        <button id="helpBtn" class="help-link"><span>?</span> HOW TO PLAY <b>↗</b></button>
+      </aside>
+    </section>
+    <footer class="bottom-bar"><div class="bottom-left"><span class="status-pip"></span><span id="statusText">Your villagers await your command.</span></div><div class="bottom-right"><span>GREENMERE</span><span class="bottom-sep">·</span><span id="clock">00:00</span><span class="bottom-sep">·</span><span>BUILD 1.0</span></div></footer>
+  </main>
+  <div class="modal-backdrop" id="modal"><div class="modal"><button class="modal-close" id="modalClose">×</button><div class="section-label"><span class="gold-line"></span> FIELD MANUAL</div><h2>How to play</h2><p class="modal-intro">A rival clan has claimed the valley. Build wisely, then take their stronghold.</p><div class="guide-row"><span class="guide-key">SELECT</span><p>Click a unit or drag a box around several units.</p></div><div class="guide-row"><span class="guide-key">MOVE</span><p>Right-click any open ground to move selected units.</p></div><div class="guide-row"><span class="guide-key">GATHER</span><p>Select a villager, then right-click a tree, berry bush, or gold deposit.</p></div><div class="guide-row"><span class="guide-key">BUILD</span><p>Use the build commands, then click a clear spot near your settlement.</p></div><div class="guide-row"><span class="guide-key">ATTACK</span><p>Select soldiers and right-click an enemy or their stronghold. Keep villagers working to fund your army.</p></div><div class="guide-tip">TIP &nbsp; Your Town Center trains villagers. Houses increase your population limit. Enemy raids grow stronger over time.</div><button class="primary-btn" id="playBtn">BACK TO THE VALLEY <span>→</span></button></div></div>
+  <script src="game.js"></script>
+</body>
+</html>
